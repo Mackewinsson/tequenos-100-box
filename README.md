@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧀 TEQUEBOX — Landing Page "Caja 100 Tequeños por 45 €"
 
-## Getting Started
+Landing page de alta conversión para la venta directa de **Cajas de 100 Tequeños Artesanales por 45,00 €** (0,45 €/unidad), desarrollada con **Next.js 16 (App Router), TypeScript y Tailwind CSS v4**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📍 Ubicación del Proyecto
+`/Users/mackewinsson/projects/tequenos-100-box`
+
+---
+
+## 🛠️ Stack Tecnológico
+- **Framework:** Next.js (App Router, Turbopack)
+- **Lenguaje:** TypeScript (`strict: true`)
+- **Estilos:** Tailwind CSS v4 (`@tailwindcss/postcss` con `@theme`)
+- **Tipografías:** `Syne` (Titulares) y `Plus Jakarta Sans` (Lectura) vía `next/font/google`
+- **Iconos:** `lucide-react`
+- **Metodología de Diseño:** `/frontend-design` (Gastro-Modernismo Nocturno, evitando clichés de IA)
+
+---
+
+## 🧩 Arquitectura de Componentes
+```
+src/
+├── app/
+│   ├── globals.css          # Tokens de diseño Tailwind v4, glow effects y scrollbar
+│   ├── layout.tsx           # Configuración de Google Fonts (Syne + Jakarta) y metadatos SEO
+│   └── page.tsx             # Ensamblado principal y gestión de estado modal
+└├── components/
+    ├── Navbar.tsx           # Barra superior con banner de envíos y enlace directo
+    ├── Hero.tsx             # Tesis principal: "100 Tequeños. 45 €. La fiesta está resuelta."
+    ├── CheeseSlider.tsx     # Hook 1: Slider táctil de estiramiento de queso (medición en cm)
+    ├── PartyCalculator.tsx  # Hook 2: Calculadora de invitados (4-30 comensales, cálculo €/persona)
+    ├── ProductAnatomy.tsx   # "Por qué nunca se revientan": Queso llanero real, masa fina, sellado espiral
+    ├── PrepGuide.tsx        # Selector interactivo Airfryer (6 min), Sartén (3 min) y Horno (8 min)
+    ├── PricingBundles.tsx   # Packs: 100 uds (45€), 200 uds (85€ + envío gratis) y 300 uds (120€)
+    ├── Testimonials.tsx     # Reseñas verificadas de anfitriones y hostelería (4.9/5 estrellas)
+    ├── FaqSection.tsx       # Acordeón de dudas sobre transporte en frío, conservación y cocinado
+    ├── StickyMobileBar.tsx  # Barra flotante de compra rápida fija en móvil
+    ├── CheckoutModal.tsx    # Modal de validación de demanda: captura lead + pantalla lote agotado / lista espera
+    └── Footer.tsx           # Pie de página con registro sanitario y contacto de obrador
+└── data/
+    └── leads.json           # Registro de leads persistidos localmente (preparado para Neon DB)
+
+---
+
+## 🎯 Flujo de Validación de Demanda (Smoke Test)
+1. **Captura de Intención:** El usuario elige su pack e introduce Nombre, WhatsApp, Email y Ciudad.
+2. **Registro de Lead:** Envío asíncrono a `/api/leads` (almacena en local y asigna ticket correlativo con posición prioritaria).
+3. **Pantalla de Conversión a Lista de Espera:**
+   - Comunica que el lote artesanal de la semana está agotado (50 cajas semanales de cupo).
+   - Asigna número de cola prioritaria (ej. `#20`).
+   - Garantiza el precio congelado de oferta (45 €).
+   - Ofrece compensación por la espera: 1 tarro de salsa artesana gratis.
+   - Proporciona canal de urgencias vía WhatsApp para eventos de fin de semana.
+
+---
+
+## 🗄️ Próximo Paso: Integración con Base de Datos Neon
+El endpoint `src/app/api/leads/route.ts` está aislado y preparado para conectar con Neon (`@neondatabase/serverless`) mediante variable de entorno `DATABASE_URL`.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Comandos Rápidos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Desarrollo Local
+```bash
+npm run dev
+```
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-## Learn More
+### Compilación para Producción
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Documentos de Referencia
+- [`EXECUTION_PLAN.md`](file:///Users/mackewinsson/projects/tequenos-100-box/EXECUTION_PLAN.md): Especificación detallada de tokens, copy deck completo y principios de diseño.

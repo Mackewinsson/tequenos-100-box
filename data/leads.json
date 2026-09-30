@@ -1,0 +1,41 @@
+[
+  {
+    "id": "lead_muofi9rdyu1n",
+    "name": "Alejandro Gómez",
+    "email": "alejandro@test.com",
+    "phone": "654987321",
+    "city": "Madrid",
+    "bundle": "1_box",
+    "bundleName": "1 Caja (100 Tequeños)",
+    "price": 45,
+    "notes": "",
+    "createdAt": "2026-09-30T18:18:35.113Z",
+    "status": "waitlist_pending"
+  },
+  {
+    "id": "lead_muofjmed4w9r",
+    "name": "Laura Martínez",
+    "email": "laura@martinez.com",
+    "phone": "611222333",
+    "city": "Barcelona",
+    "bundle": "1_box",
+    "bundleName": "1 Caja Fiesta (100 Tequeños)",
+    "price": 50.95,
+    "notes": "",
+    "createdAt": "2026-09-30T18:19:38.149Z",
+    "status": "waitlist_pending"
+  },
+  {
+    "id": "lead_muofp7wrg85v",
+    "name": "Mackewinsson Palencia",
+    "email": "mackewinsson@gmail.com",
+    "phone": "654990421",
+    "city": "malaga",
+    "bundle": "3_boxes",
+    "bundleName": "Pack Hostelería / Eventos (300 Tequeños)",
+    "price": 120,
+    "notes": "",
+    "createdAt": "2026-09-30T18:23:59.307Z",
+    "status": "waitlist_pending"
+  }
+]
