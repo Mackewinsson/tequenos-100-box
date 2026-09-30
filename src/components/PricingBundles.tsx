@@ -14,16 +14,16 @@ export const PricingBundles: React.FC<PricingBundlesProps> = ({ onOpenCheckout }
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#10151E] border border-white/10 text-[#FFB703] text-xs font-bold uppercase tracking-wider mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#10151E] border border-white/10 text-[#FFB703] text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 fill-[#FFB703]" />
-            Tarifa Directa de Obrador
+            Oferta Directa de Obrador
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-[#FFFDF7] mb-3">
-            Nuestro Producto Único
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-display text-[#FFFDF7] mb-3">
+            Todo resuelto en una sola caja
           </h2>
-          <p className="text-sm sm:text-base text-white/60">
-            Sin variantes complejas ni intermediarios. La auténtica receta artesanal en su formato perfecto de 50 unidades.
+          <p className="text-xs sm:text-base text-white/60">
+            50 tequeños crudos de calidad premium, salsa tártara artesana y transporte refrigerado express a tu puerta.
           </p>
         </div>
 

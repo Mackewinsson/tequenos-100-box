@@ -1,109 +1,124 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Award, Layers, Snowflake, CheckCircle } from "lucide-react";
+import { ShieldCheck, Award, Wind, Flame, CheckCircle, Gift } from "lucide-react";
 
-export const ProductAnatomy: React.FC = () => {
+interface ProductAnatomyProps {
+  onOpenCheckout?: () => void;
+}
+
+export const ProductAnatomy: React.FC<ProductAnatomyProps> = () => {
   return (
-    <section id="calidad" className="py-20 bg-[#0E131B] border-t border-white/5 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="calidad" className="py-16 sm:py-20 bg-[#0E131B] border-t border-white/5 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#131821] border border-white/10 text-[#FFB703] text-xs font-bold uppercase tracking-wider mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#131821] border border-white/10 text-[#FFB703] text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5" />
-            Calidad de Obrador
+            Ingeniería de Obrador
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-[#FFFDF5] mb-4">
-            Por qué nuestros tequeños <br />
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-display text-[#FFFDF5] mb-3">
+            Cero fugas de queso. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB703] to-[#FB8500]">
-              nunca se revientan
+              Listos en 6 minutos en tu Airfryer.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-white/60">
-            El mayor drama al freír tequeños baratos es que se sale el queso y queda la masa vacía. En TequeBox diseñamos cada unidad con ingeniería artesanal para que el queso quede 100% dentro.
+          <p className="text-xs sm:text-base text-white/60">
+            El gran drama de los tequeños industriales de supermercado: la masa revienta, el queso se sale y te quedas con un rollo hueco. En TequeBox diseñamos cada unidad para que el queso quede 100% dentro.
           </p>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 3 Core Advantage Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
           
-          {/* Card 1 */}
-          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all group flex flex-col justify-between">
+          {/* Pillar 1 */}
+          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-[#FFB703] group-hover:text-black transition-all">
+              <div className="w-11 h-11 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4">
                 🧀
               </div>
               <h3 className="text-lg font-bold text-white mb-2 font-display">
-                Queso Blanco Llanero Real
+                1. Queso Blanco Macizo
               </h3>
               <p className="text-xs text-white/60 leading-relaxed mb-4">
-                Barras macizas de 25g de queso artesanal semi-duro. A diferencia del queso industrial barato, no libera exceso de suero ni agua al calentarse, evitando la presión de vapor que rompe la masa.
+                Barra maciza de queso blanco llanero tradicional semi-duro. A diferencia del queso industrial procesado, no suelta agua ni suero al calentarse, evitando la presión de vapor que rompe la masa.
               </p>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 pt-3 border-t border-white/5">
               <CheckCircle className="w-3.5 h-3.5" />
-              <span>Cero sucedáneos</span>
+              <span>Queso artesano que funde y estira</span>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all group flex flex-col justify-between">
+          {/* Pillar 2 */}
+          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-[#FFB703] group-hover:text-black transition-all">
-                🥐
+              <div className="w-11 h-11 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4">
+                🔒
               </div>
               <h3 className="text-lg font-bold text-white mb-2 font-display">
-                Masa Fina con Mantequilla
+                2. Sellado Hermético Manual
               </h3>
               <p className="text-xs text-white/60 leading-relaxed mb-4">
-                Elaborada con harina de trigo de fuerza y un toque de mantequilla pura (cero grasas hidrogenadas). Fina, elástica durante el armado y súper crujiente y hojaldrada tras la cocción.
+                Cada tequeño se enrolla en espiral continua con puntas selladas a mano en obrador. Creamos una cámara estanca que resiste tanto el aire turbulento del airfryer como el aceite de la sartén.
               </p>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 pt-3 border-t border-white/5">
               <CheckCircle className="w-3.5 h-3.5" />
-              <span>Crujido garantizado</span>
+              <span>Garantía de cero fugas</span>
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all group flex flex-col justify-between">
+          {/* Pillar 3 */}
+          <div className="rounded-2xl bg-[#131821] p-6 border-2 border-[#FFB703]/60 shadow-[0_0_25px_rgba(255,183,3,0.1)] flex flex-col justify-between relative">
+            <span className="absolute -top-3 left-6 bg-[#FFB703] text-black text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
+              Súper Fácil
+            </span>
             <div>
-              <div className="w-12 h-12 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-[#FFB703] group-hover:text-black transition-all">
-                🌀
+              <div className="w-11 h-11 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4 mt-1 text-[#FFB703]">
+                <Wind className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 font-display">
-                Enrollado en Espiral Hermético
+                3. Del Congelador al Airfryer
               </h3>
               <p className="text-xs text-white/60 leading-relaxed mb-4">
-                Cada tequeño se enrolla en solapa continua con puntas selladas a mano. Creamos una cámara hermética que resiste tanto el choque de calor de la freidora como el aire turbulento del airfryer.
+                <strong>Sin descongelar jamás.</strong> Pasan directos del congelador a tu freidora de aire (6-7 min a 180°C) o sartén (3 min). La masa se sella al instante y consigues un dorado crujiente de pastelería.
               </p>
             </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
-              <CheckCircle className="w-3.5 h-3.5" />
-              <span>Cero fugas de queso</span>
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#FFB703] pt-3 border-t border-white/5">
+              <Flame className="w-3.5 h-3.5" />
+              <span>Listos en lo que pones los platos</span>
             </div>
           </div>
 
-          {/* Card 4 */}
-          <div className="rounded-2xl bg-[#131821] p-6 border border-white/5 hover:border-[#FFB703]/30 transition-all group flex flex-col justify-between">
+        </div>
+
+        {/* Double Reassurance Strip: Guarantee & Free Sauce */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="rounded-2xl bg-gradient-to-r from-emerald-950/60 to-[#131821] border border-emerald-500/30 p-4 sm:p-5 flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
             <div>
-              <div className="w-12 h-12 rounded-xl bg-[#242E3D] flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-[#FFB703] group-hover:text-black transition-all">
-                ❄️
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 font-display">
-                Caja Premium: 50 Tequeños Crudos
-              </h3>
-              <p className="text-xs text-white/60 leading-relaxed mb-4">
-                Empacados en bandeja termo-sellada protegida del frío. Cocinas solo los que necesitas al momento (10, 15...) y el resto se mantiene intacto y crujiente en tu congelador hasta 6 meses.
+              <h4 className="text-xs sm:text-sm font-bold text-white">Garantía Anti-Fugas de Obrador</h4>
+              <p className="text-[11px] sm:text-xs text-white/60">
+                Si sigues la guía de 6 min y algún tequeño se vacía, te reponemos la caja gratis.
               </p>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
-              <CheckCircle className="w-3.5 h-3.5" />
-              <span>Consumo práctico a tu ritmo</span>
             </div>
           </div>
 
+          <div className="rounded-2xl bg-gradient-to-r from-amber-950/50 to-[#131821] border border-[#FFB703]/30 p-4 sm:p-5 flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-full bg-[#FFB703]/20 text-[#FFB703] flex items-center justify-center shrink-0">
+              <Gift className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-xs sm:text-sm font-bold text-white">Salsa Tártara Artesana de Regalo</h4>
+              <p className="text-[11px] sm:text-xs text-white/60">
+                Cada caja incluye 1 tarro de salsa tártara tradicional sin coste adicional.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>

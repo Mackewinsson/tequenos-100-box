@@ -3,10 +3,8 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { CheeseSlider } from "@/components/CheeseSlider";
 import { PartyCalculator } from "@/components/PartyCalculator";
 import { ProductAnatomy } from "@/components/ProductAnatomy";
-import { PrepGuide } from "@/components/PrepGuide";
 import { PricingBundles } from "@/components/PricingBundles";
 import { Testimonials } from "@/components/Testimonials";
 import { FaqSection } from "@/components/FaqSection";
@@ -33,17 +31,11 @@ export default function Home() {
       {/* Hero Section */}
       <Hero onOpenCheckout={handleOpenCheckout} />
 
-      {/* Signature 1: Interactive Cheese-Pull Experience */}
-      <CheeseSlider />
-
-      {/* Signature 2: Party Guests & Cost Math Calculator */}
+      {/* Signature: Party Guests & Cost Math Calculator */}
       <PartyCalculator onOpenCheckout={handleOpenCheckout} />
 
-      {/* Quality & Why they never leak */}
+      {/* Quality, Zero Leaks & 6 Min Prep */}
       <ProductAnatomy />
-
-      {/* Quick Prep Guide: Airfryer, Pan, Oven */}
-      <PrepGuide />
 
       {/* Single Product Pricing Section: Caja Premium de 50 tequeños crudos (45 €) */}
       <PricingBundles onOpenCheckout={handleOpenCheckout} />

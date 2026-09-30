@@ -36,26 +36,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCheckout }) => {
           </div>
         </a>
 
-        {/* Clean Nav Links */}
-        <div className="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wide text-white/75">
-          <a href="#experiencia" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            El Cheese-Pull
-          </a>
-          <a href="#calculadora" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            Calculadora Raciones
-          </a>
-          <a href="#calidad" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            Por qué no revientan
-          </a>
-          <a href="#preparacion" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            Cómo cocinar
-          </a>
-          <a href="#precios" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            Precio
-          </a>
-          <a href="#faq" className="hover:text-[#FFB703] transition-colors whitespace-nowrap">
-            Preguntas
-          </a>
+        {/* Trust Proof Badge (Eliminates navigation leaks) */}
+        <div className="hidden md:flex items-center gap-2 text-xs font-semibold text-white/70 bg-white/[0.04] px-3.5 py-1.5 rounded-full border border-white/10">
+          <span className="flex text-[#FFB703]">★★★★★</span>
+          <span className="text-white font-bold">4.9/5</span>
+          <span className="text-white/40">•</span>
+          <span>1.200+ Cajas Enviadas</span>
+          <span className="text-white/40">•</span>
+          <span className="text-emerald-400 font-medium">Envío Frío 24/48h</span>
         </div>
 
         {/* Action CTAs */}

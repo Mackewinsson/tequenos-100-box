@@ -22,17 +22,17 @@ export const Testimonials: React.FC = () => {
       date: "Hace 1 semana",
     },
     {
-      name: "Bar & Tapas El Rincón (Valencia)",
-      role: "Hostelería / Menú tapas",
+      name: "Lucía P. (Valencia)",
+      role: "Anfitriona de cenas con amigos",
       quote:
-        "Metimos la ración de 5 tequeños a 7,50€ en nuestra carta usando las cajas de TequeBox. El margen de ganancia es brutal y los clientes siempre preguntan de dónde los sacamos porque son puro queso artesanal.",
+        "Los preparé en el airfryer en 7 minutos y mis amigos no se creían que no eran de restaurante. El queso se estira infinito y la salsa tártara que viene de regalo está increíble. Es un salvavidas tener una caja en el congelador para cuando vienen visitas.",
       rating: 5,
       date: "Hace 2 semanas",
     },
   ];
 
   return (
-    <section className="py-20 bg-[#0A0E14] relative">
+    <section id="opiniones" className="py-20 bg-[#0A0E14] relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

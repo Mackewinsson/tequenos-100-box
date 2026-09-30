@@ -27,10 +27,6 @@ export const FaqSection: React.FC = () => {
       q: "¿Qué tipo de queso llevan exactamente?",
       a: "Elaboramos nuestros tequeños exclusivamente con auténtico queso blanco llanero semi-duro de tradición venezolana, pasteurizado y con el punto exacto de sal. No utilizamos quesos procesados, gomas ni grasas vegetales añadidas.",
     },
-    {
-      q: "¿Hacéis envíos para eventos o pedidos de varias cajas?",
-      a: "Sí. Para eventos especiales, cumpleaños o celebraciones familiares puedes pedir varias cajas de 50 tequeños crudos o contactarnos directamente por WhatsApp para envíos de mayor volumen con transporte refrigerado prioritario.",
-    },
   ];
 
   return (

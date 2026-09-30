@@ -63,5 +63,33 @@
     "notes": "",
     "createdAt": "2026-09-30T20:24:24.277Z",
     "status": "waitlist_pending"
+  },
+  {
+    "id": "lead_muolfh9mum9s",
+    "orderNumber": "TQ-3275",
+    "name": "Laura Gómez",
+    "email": "",
+    "phone": "612345678",
+    "city": "Calle Mayor 12, 28013 Madrid",
+    "product": "Caja Premium de 50 tequeños crudos",
+    "description": "Caja de 50 unidades",
+    "price": 45,
+    "notes": "",
+    "createdAt": "2026-09-30T21:04:22.570Z",
+    "status": "order_confirmed"
+  },
+  {
+    "id": "lead_muolt21e11ka",
+    "orderNumber": "TQ-8436",
+    "name": "Mackewinsson Palencia",
+    "email": "mackewinsson@gmail.com",
+    "phone": "654990421",
+    "city": "calle alta de san mateo 7",
+    "product": "Caja Premium de 50 tequeños crudos",
+    "description": "50 unidades crudas ultracongeladas + salsa tártara de regalo",
+    "price": 45,
+    "notes": "",
+    "createdAt": "2026-09-30T21:14:56.018Z",
+    "status": "order_confirmed"
   }
 ]

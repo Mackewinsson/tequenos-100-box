@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
 
             {/* Subheadline */}
             <p className="text-sm sm:text-base text-white/70 max-w-lg font-normal leading-relaxed mb-6">
-              Auténtico queso blanco llanero que funde y estira de verdad, envuelto en masa fina y crujiente. <strong className="text-white font-semibold">Caja Premium de 50 tequeños crudos</strong> ultracongelados al momento por solo <strong className="text-white font-semibold underline decoration-[#FFB703] decoration-2">0,90 € la unidad</strong> con envío en frío incluido.
+              Auténtico queso blanco llanero que funde y estira de verdad, envuelto en masa fina hojaldrada. Por solo <strong className="text-white font-semibold underline decoration-[#FFB703] decoration-2">0,90 € la unidad</strong>, con transporte en frío 24/48h y salsa tártara de regalo incluidos.
             </p>
 
             {/* Price Transparency Card */}
