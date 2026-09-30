@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               <li><a href="#calculadora" className="hover:text-[#FFB703] transition-colors">Calculadora para Fiestas</a></li>
               <li><a href="#calidad" className="hover:text-[#FFB703] transition-colors">Por qué no revientan</a></li>
               <li><a href="#preparacion" className="hover:text-[#FFB703] transition-colors">Guía de Cocinado</a></li>
-              <li><a href="#precios" className="hover:text-[#FFB703] transition-colors">Tarifas y Packs</a></li>
+              <li><a href="#precios" className="hover:text-[#FFB703] transition-colors">Precio</a></li>
               <li><a href="#faq" className="hover:text-[#FFB703] transition-colors">Preguntas Frecuentes</a></li>
             </ul>
           </div>

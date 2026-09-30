@@ -18,12 +18,13 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tequebox.es"),
-  title: "Caja 100 Tequeños Artesanales • 45 € (0,45 €/ud) | TEQUEBOX Obrador",
+  title: "Caja Premium de 50 Tequeños Crudos • 45 € | TEQUEBOX Obrador",
   description:
-    "100 Tequeños de queso blanco llanero auténtico por solo 45 € (0,45 €/ud). Formato fiesta dividido en 2 bandejas de 50. Listos en 6 minutos. Transporte refrigerado 24/48h.",
+    "50 Tequeños de queso blanco llanero auténtico por solo 45 € (0,90 €/ud). Formato de 50 unidades crudas ultracongeladas con salsa tártara de regalo. Listos en 6 minutos. Transporte refrigerado 24/48h.",
   keywords: [
     "tequeños",
-    "caja 100 tequeños",
+    "caja 50 tequeños",
+    "tequeños crudos",
     "tequeños 45 euros",
     "tequeños queso blanco",
     "comprar tequeños espana",
@@ -31,9 +32,9 @@ export const metadata: Metadata = {
     "tequeños airfryer",
   ],
   openGraph: {
-    title: "100 Tequeños Artesanales por 45 € • TEQUEBOX",
+    title: "50 Tequeños Crudos por 45 € • TEQUEBOX",
     description:
-      "Auténtico queso blanco llanero que funde y estira. 100 unidades por solo 0,45 € cada una. Envíos refrigerados 24/48h.",
+      "Auténtico queso blanco llanero que funde y estira. 50 unidades crudas ultracongeladas por 45 € con envío refrigerado 24/48h.",
     type: "website",
     locale: "es_ES",
     images: [
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
         url: "/images/hero-platter.jpg",
         width: 1200,
         height: 900,
-        alt: "Caja 100 Tequeños Artesanales",
+        alt: "Caja Premium de 50 Tequeños Crudos",
       },
     ],
   },

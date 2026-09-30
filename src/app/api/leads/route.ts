@@ -40,7 +40,7 @@ function saveLead(newLead: any) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, city, bundle, bundleName, price, notes } = body;
+    const { name, email, phone, city, product, description, price, notes } = body;
 
     if (!email && !phone) {
       return NextResponse.json(
@@ -58,8 +58,8 @@ export async function POST(request: Request) {
       email: email || "",
       phone: phone || "",
       city: city || "",
-      bundle: bundle || "1_box",
-      bundleName: bundleName || "1 Caja (100 Tequeños)",
+      product: product || "Caja Premium de 50 tequeños crudos",
+      description: description || "Caja de 50 unidades",
       price: price || 45,
       notes: notes || "",
       createdAt,

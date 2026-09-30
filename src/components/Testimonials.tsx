@@ -17,7 +17,7 @@ export const Testimonials: React.FC = () => {
       name: "Valentina R. (Barcelona)",
       role: "Auténtica tequeño lover",
       quote:
-        "Como venezolana viviendo en España, soy súper exigente con el queso. Este es queso llanero de verdad, con su salinidad perfecta. La masa es crujiente y nada grasienta. El paquete de 100 dividido en 2 bandejas de 50 es comodísimo.",
+        "Como venezolana viviendo en España, soy súper exigente con el queso. Este es queso llanero de verdad, con su salinidad perfecta. La masa es crujiente y nada grasienta. La Caja de 50 tequeños crudos es comodísima: cocinas unos pocos cuando tienes antojo o toda la caja en una cena con amigos.",
       rating: 5,
       date: "Hace 1 semana",
     },
@@ -25,7 +25,7 @@ export const Testimonials: React.FC = () => {
       name: "Bar & Tapas El Rincón (Valencia)",
       role: "Hostelería / Menú tapas",
       quote:
-        "Metimos la ración de 5 tequeños a 7,50€ en nuestra carta usando este pack de 300. El margen de ganancia es brutal y los clientes siempre preguntan de dónde los sacamos porque son puro queso artesanal.",
+        "Metimos la ración de 5 tequeños a 7,50€ en nuestra carta usando las cajas de TequeBox. El margen de ganancia es brutal y los clientes siempre preguntan de dónde los sacamos porque son puro queso artesanal.",
       rating: 5,
       date: "Hace 2 semanas",
     },

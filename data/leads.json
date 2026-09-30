@@ -37,5 +37,31 @@
     "notes": "",
     "createdAt": "2026-09-30T18:23:59.307Z",
     "status": "waitlist_pending"
+  },
+  {
+    "id": "lead_muoimqcintm9",
+    "name": "Mackewinsson Palencia",
+    "email": "mackewinsson@gmail.com",
+    "phone": "654990421",
+    "city": "malaga",
+    "bundle": "1_box",
+    "bundleName": "1 Caja Fiesta (100 Tequeños)",
+    "price": 50.95,
+    "notes": "",
+    "createdAt": "2026-09-30T19:46:02.082Z",
+    "status": "waitlist_pending"
+  },
+  {
+    "id": "lead_muok02qdltyv",
+    "name": "Carlos Prueba",
+    "email": "",
+    "phone": "654987321",
+    "city": "Madrid",
+    "product": "Caja Premium de 50 tequeños crudos",
+    "description": "Caja de 50 unidades",
+    "price": 45,
+    "notes": "",
+    "createdAt": "2026-09-30T20:24:24.277Z",
+    "status": "waitlist_pending"
   }
 ]

@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Sparkles, ShieldCheck, Clock, Snowflake, Star, ArrowRight, Eye } from "lucide-react";
+import { Sparkles, ShieldCheck, Clock, Snowflake, Star, ArrowRight } from "lucide-react";
 
 interface HeroProps {
-  onOpenCheckout: (bundle?: string) => void;
+  onOpenCheckout: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
@@ -26,12 +26,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-[#FFB703]/30 text-[#FFB703] text-xs font-bold tracking-wider uppercase mb-5 shadow-[0_0_15px_rgba(255,183,3,0.12)]">
               <Sparkles className="w-3.5 h-3.5 fill-[#FFB703]" />
-              Edición Fiesta • Obrador Artesanal
+              Edición Única • Obrador Artesanal
             </div>
 
-            {/* H1 Main Headline - Balanced Gastro Typographic Scale */}
+            {/* H1 Main Headline - Single Product Focus */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-[#FFFDF7] leading-[1.12] mb-5">
-              100 Tequeños <br />
+              50 Tequeños Crudos <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB703] via-[#FB8500] to-[#FFD166]">
                 por 45 €.
               </span>{" "}
@@ -41,22 +41,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
 
             {/* Subheadline */}
             <p className="text-sm sm:text-base text-white/70 max-w-lg font-normal leading-relaxed mb-6">
-              Auténtico queso blanco llanero que funde y estira de verdad, envuelto en masa fina y crujiente. Directos de nuestro obrador a tu congelador por solo <strong className="text-white font-semibold underline decoration-[#FFB703] decoration-2">0,45 € la unidad</strong>.
+              Auténtico queso blanco llanero que funde y estira de verdad, envuelto en masa fina y crujiente. <strong className="text-white font-semibold">Caja Premium de 50 tequeños crudos</strong> ultracongelados al momento por solo <strong className="text-white font-semibold underline decoration-[#FFB703] decoration-2">0,90 € la unidad</strong> con envío en frío incluido.
             </p>
 
             {/* Price Transparency Card */}
             <div className="w-full max-w-md p-4 rounded-2xl bg-[#10151E] border border-white/10 mb-6 flex items-center justify-between shadow-xl">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-white/50 block font-semibold">Oferta Directa</span>
+                <span className="text-[11px] uppercase tracking-wider text-white/50 block font-semibold">Producto Único</span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-black text-[#FFB703] font-display">45,00 €</span>
-                  <span className="text-xs line-through text-white/40">65,00 €</span>
-                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-500/30 px-2 py-0.5 rounded-full">-30%</span>
+                  <span className="text-xs line-through text-white/40">60,00 €</span>
+                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-500/30 px-2 py-0.5 rounded-full">-25%</span>
                 </div>
               </div>
               <div className="text-right border-l border-white/10 pl-4">
                 <span className="text-[11px] uppercase tracking-wider text-white/50 block font-semibold">Coste unitario</span>
-                <span className="text-2xl font-black text-[#FFFDF7] font-mono">0,45 €</span>
+                <span className="text-2xl font-black text-[#FFFDF7] font-mono">0,90 €</span>
                 <span className="text-[10px] text-white/50 block">por tequeño</span>
               </div>
             </div>
@@ -64,15 +64,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
             {/* Primary CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-8">
               <button
-                onClick={() => onOpenCheckout("1_box")}
+                onClick={onOpenCheckout}
                 className="group flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#FFB703] to-[#FB8500] hover:from-[#FB8500] hover:to-[#FFB703] text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-[0_10px_35px_rgba(255,183,3,0.3)] hover:shadow-[0_15px_45px_rgba(251,133,0,0.5)] transition-all active:scale-[0.98] cursor-pointer"
               >
-                <span>Pedir Caja de 100 (45 €)</span>
+                <span>Comprar Caja - 45€</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
-                href="https://wa.me/?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20la%20Caja%20de%20100%20Teque%C3%B1os%20por%2045%E2%82%AC"
+                href="https://wa.me/?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20la%20Caja%20Premium%20de%2050%20Teque%C3%B1os%20Crudos%20por%2045%E2%82%AC"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white font-semibold text-xs sm:text-sm border border-white/10 transition-colors"
@@ -93,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
               </div>
               <div className="flex items-center gap-2 bg-[#10151E] px-3 py-2 rounded-xl border border-white/5">
                 <Snowflake className="w-3.5 h-3.5 text-[#FFB703] shrink-0" />
-                <span>2 packs de 50</span>
+                <span>50 Uds Crudas</span>
               </div>
               <div className="flex items-center gap-2 bg-[#10151E] px-3 py-2 rounded-xl border border-white/5">
                 <Star className="w-3.5 h-3.5 text-[#FFB703] fill-[#FFB703] shrink-0" />
@@ -131,7 +131,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
                           : "text-white/60 hover:text-white"
                       }`}
                     >
-                      Caja Catering (100 Uds)
+                      Caja Premium (50 Uds)
                     </button>
                   </div>
 
@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
                 <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-white/5 group">
                   <Image
                     src={activePhoto === "platter" ? "/images/hero-platter.jpg" : "/images/party-box.jpg"}
-                    alt={activePhoto === "platter" ? "Tequeños artesanales con queso fundido" : "Caja de 100 tequeños TEQUEBOX"}
+                    alt={activePhoto === "platter" ? "Tequeños artesanales con queso fundido" : "Caja Premium de 50 tequeños crudos"}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -160,12 +160,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
                     <div className="bg-[#080B10]/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-[#FFB703]" />
                       <span className="font-semibold">
-                        {activePhoto === "platter" ? "Masa Crujiente & Queso Fundido" : "2 Packs de 50 Termo-sellados"}
+                        {activePhoto === "platter" ? "Masa Crujiente & Queso Fundido" : "Caja Premium • 50 Tequeños Crudos"}
                       </span>
                     </div>
 
                     <div className="bg-[#E63946] text-white font-black text-[11px] uppercase tracking-wider px-3 py-1 rounded-xl shadow-lg">
-                      Solo 0,45 €/ud
+                      Solo 45 €
                     </div>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
                 <div className="p-3 pt-4 flex items-center justify-between text-xs">
                   <div>
                     <span className="text-white/40 block text-[10px] uppercase">Formato</span>
-                    <strong className="text-white font-semibold">100 Tequeños (2.500 g de queso y masa)</strong>
+                    <strong className="text-white font-semibold">Caja Premium de 50 tequeños crudos (1.250 g)</strong>
                   </div>
                   <div className="text-right">
                     <span className="text-white/40 block text-[10px] uppercase">Precio Total</span>

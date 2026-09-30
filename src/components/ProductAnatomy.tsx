@@ -92,15 +92,15 @@ export const ProductAnatomy: React.FC = () => {
                 ❄️
               </div>
               <h3 className="text-lg font-bold text-white mb-2 font-display">
-                Formato Dividido: 2 x 50 Uds
+                Caja Premium: 50 Tequeños Crudos
               </h3>
               <p className="text-xs text-white/60 leading-relaxed mb-4">
-                No tienes que descongelar los 100 de golpe. Vienen en 2 bandejas independientes termo-selladas de 50 tequeños. Sacas los 10 que te apetecen para cenar y el resto sigue perfecto hasta 6 meses.
+                Empacados en bandeja termo-sellada protegida del frío. Cocinas solo los que necesitas al momento (10, 15...) y el resto se mantiene intacto y crujiente en tu congelador hasta 6 meses.
               </p>
             </div>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
               <CheckCircle className="w-3.5 h-3.5" />
-              <span>Consumo a tu ritmo</span>
+              <span>Consumo práctico a tu ritmo</span>
             </div>
           </div>
 

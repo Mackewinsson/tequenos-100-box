@@ -16,10 +16,8 @@ import { CheckoutModal } from "@/components/CheckoutModal";
 
 export default function Home() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [selectedBundle, setSelectedBundle] = useState<string>("1_box");
 
-  const handleOpenCheckout = (bundle: string = "1_box") => {
-    setSelectedBundle(bundle);
+  const handleOpenCheckout = () => {
     setIsCheckoutOpen(true);
   };
 
@@ -47,7 +45,7 @@ export default function Home() {
       {/* Quick Prep Guide: Airfryer, Pan, Oven */}
       <PrepGuide />
 
-      {/* Direct Pricing & Bundles (100, 200, 300) */}
+      {/* Single Product Pricing Section: Caja Premium de 50 tequeños crudos (45 €) */}
       <PricingBundles onOpenCheckout={handleOpenCheckout} />
 
       {/* Social Proof & Customer Reviews */}
@@ -62,11 +60,10 @@ export default function Home() {
       {/* Persistent Bottom Bar for Mobile Viewports */}
       <StickyMobileBar onOpenCheckout={handleOpenCheckout} />
 
-      {/* Express WhatsApp Checkout Modal */}
+      {/* Checkout & Demand Validation Modal */}
       <CheckoutModal
         isOpen={isCheckoutOpen}
         onClose={handleCloseCheckout}
-        initialBundle={selectedBundle}
       />
     </main>
   );

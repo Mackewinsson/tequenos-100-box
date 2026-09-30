@@ -8,8 +8,8 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: "¿Cómo vienen empacados los 100 tequeños?",
-      a: "La caja contiene 2 bandejas termo-selladas independientes de 50 unidades cada una. De esta forma, si tienes una cena pequeña o un antojo, abres una bandeja y cocinas los que quieras (10, 15, 20...) manteniendo el resto perfectamente sellado y protegido del hielo en el congelador.",
+      q: "¿Cómo vienen empacados los 50 tequeños crudos?",
+      a: "La caja contiene 50 unidades de tequeños crudos ultracongelados protegidos en bandejas termo-selladas con separadores para evitar que se peguen. De esta forma, cocinas únicamente los que vayas a consumir en cada momento (10, 15, 20...) manteniendo el resto sellado y protegido del frío en tu congelador hasta 6 meses.",
     },
     {
       q: "¿Cómo funciona el envío refrigerado y qué pasa si no estoy en casa?",
@@ -28,8 +28,8 @@ export const FaqSection: React.FC = () => {
       a: "Elaboramos nuestros tequeños exclusivamente con auténtico queso blanco llanero semi-duro de tradición venezolana, pasteurizado y con el punto exacto de sal. No utilizamos quesos procesados, gomas ni grasas vegetales añadidas.",
     },
     {
-      q: "¿Hacéis envíos para empresas, eventos o bodas?",
-      a: "Sí. Para eventos especiales o catering disponemos del Pack de 300 unidades con envío refrigerado prioritario gratuito y factura con IVA desglosado para autónomos y hostelería.",
+      q: "¿Hacéis envíos para eventos o pedidos de varias cajas?",
+      a: "Sí. Para eventos especiales, cumpleaños o celebraciones familiares puedes pedir varias cajas de 50 tequeños crudos o contactarnos directamente por WhatsApp para envíos de mayor volumen con transporte refrigerado prioritario.",
     },
   ];
 

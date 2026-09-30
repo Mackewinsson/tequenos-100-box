@@ -1,20 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Clock, AlertCircle, MessageCircle, Gift, ShieldAlert, ArrowRight, Loader2 } from "lucide-react";
+import { X, Clock, AlertCircle, MessageCircle, Gift, ShieldAlert, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 
 interface CheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  initialBundle?: string;
 }
 
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   isOpen,
   onClose,
-  initialBundle = "1_box",
 }) => {
-  const [selectedBundle, setSelectedBundle] = useState<string>(initialBundle);
+  // Clean single-product state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -26,11 +24,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [waitlistNumber, setWaitlistNumber] = useState<number>(24);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    if (initialBundle) {
-      setSelectedBundle(initialBundle);
-    }
-  }, [initialBundle]);
+  // Single static product specifications
+  const PRODUCT_NAME = "Caja Premium de 50 tequeños crudos";
+  const PRODUCT_DESC = "Caja de 50 unidades";
+  const FIXED_PRICE = 45;
 
   // Lock body scroll on mobile when modal is active
   useEffect(() => {
@@ -45,30 +42,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   }, [isOpen]);
 
   if (!isOpen) return null;
-
-  const bundles = {
-    "1_box": {
-      name: "1 Caja Fiesta (100 Tequeños)",
-      price: 45,
-      shipping: 5.95,
-      badge: "Pack Estándar",
-    },
-    "2_boxes": {
-      name: "2 Cajas Doble Fiesta (200 Tequeños)",
-      price: 85,
-      shipping: 0,
-      badge: "Envío Gratis + 2 Salsas",
-    },
-    "3_boxes": {
-      name: "Pack Hostelería / Eventos (300 Tequeños)",
-      price: 120,
-      shipping: 0,
-      badge: "Envío Gratis + 4 Salsas",
-    },
-  };
-
-  const current = bundles[selectedBundle as keyof typeof bundles] || bundles["1_box"];
-  const total = current.price + current.shipping;
 
   const handleSubmitLead = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,6 +59,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setIsLoading(true);
 
     try {
+      // Clean single-product payload
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -94,9 +68,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           email,
           phone,
           city,
-          bundle: selectedBundle,
-          bundleName: current.name,
-          price: total,
+          product: PRODUCT_NAME,
+          description: PRODUCT_DESC,
+          price: FIXED_PRICE,
           notes,
         }),
       });
@@ -119,7 +93,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   };
 
   const handleEmergencyWhatsApp = () => {
-    const text = `¡Hola! Me acabo de apuntar a la lista de espera para la ${current.name} (posición #${waitlistNumber}), pero tengo un cumpleaños/evento urgente este fin de semana. ¿Queda alguna cancelación de última hora en el obrador?`;
+    const text = `¡Hola! Me acabo de apuntar a la lista de espera para la ${PRODUCT_NAME} (posición #${waitlistNumber}), pero tengo un cumpleaños/evento urgente este fin de semana. ¿Queda alguna cancelación de última hora en el obrador?`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -176,14 +150,18 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] uppercase text-emerald-400 font-bold block">Precio Congelado</span>
-                  <span className="text-sm font-black text-white font-mono">{current.price},00 €</span>
+                  <span className="text-sm font-black text-white font-mono">{FIXED_PRICE},00 €</span>
                 </div>
               </div>
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between text-white/80">
-                  <span className="text-white/40">Pack reservado:</span>
-                  <span className="font-semibold text-white">{current.name}</span>
+                  <span className="text-white/40">Producto reservado:</span>
+                  <span className="font-semibold text-white">{PRODUCT_NAME}</span>
+                </div>
+                <div className="flex justify-between text-white/80">
+                  <span className="text-white/40">Formato:</span>
+                  <span className="font-semibold text-white">{PRODUCT_DESC}</span>
                 </div>
                 <div className="flex justify-between text-white/80">
                   <span className="text-white/40">Contacto:</span>
@@ -239,7 +217,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 Finalizar Pedido Directo
               </span>
               <h3 className="text-xl sm:text-2xl font-black font-display text-white">
-                Caja de Tequeños Artesanales
+                {PRODUCT_NAME}
               </h3>
               <p className="text-xs text-white/60 mt-0.5">
                 Completa tus datos para asignarte una caja del lote fresco de nuestro obrador.
@@ -253,71 +231,24 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
             )}
 
-            {/* Pack Selector Pills */}
-            <div className="space-y-2 mb-4">
-              <label className="text-xs font-semibold text-white/70 block">Selecciona tu pack:</label>
-              
-              {/* 100 Uds */}
-              <div
-                onClick={() => setSelectedBundle("1_box")}
-                className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
-                  selectedBundle === "1_box"
-                    ? "bg-[#FFB703]/10 border-[#FFB703] text-white"
-                    : "bg-[#080B10] border-white/5 text-white/70 hover:border-white/20"
-                }`}
-              >
+            {/* Fixed Single Product Card (No variant selectors) */}
+            <div className="p-4 rounded-2xl bg-[#080B10] border border-[#FFB703]/30 mb-4 shadow-sm">
+              <div className="flex items-start justify-between gap-3 mb-2">
                 <div>
-                  <div className="font-bold text-xs sm:text-sm">1 Caja (100 Tequeños)</div>
-                  <div className="text-[11px] text-white/50">0,45 €/ud • 2 bandejas de 50</div>
-                </div>
-                <div className="text-right">
-                  <div className="font-mono font-bold text-[#FFB703]">45,00 €</div>
-                  <div className="text-[10px] text-white/40">+5,95€ frío</div>
-                </div>
-              </div>
-
-              {/* 200 Uds */}
-              <div
-                onClick={() => setSelectedBundle("2_boxes")}
-                className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
-                  selectedBundle === "2_boxes"
-                    ? "bg-[#FFB703]/15 border-[#FFB703] text-white"
-                    : "bg-[#080B10] border-white/5 text-white/70 hover:border-white/20"
-                }`}
-              >
-                <div>
-                  <div className="font-bold text-xs sm:text-sm flex items-center gap-1.5">
-                    2 Cajas (200 Tequeños)
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">
-                      Envío Gratis
-                    </span>
+                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#FFB703]/10 text-[#FFB703] text-[10px] font-bold uppercase tracking-wider mb-1">
+                    <CheckCircle2 className="w-3 h-3 text-[#FFB703]" />
+                    Único Producto Disponible
                   </div>
-                  <div className="text-[11px] text-emerald-400/90 font-medium">
-                    0,42 €/ud • 2 Salsas gratis
-                  </div>
+                  <h4 className="font-extrabold text-sm sm:text-base text-white font-display">
+                    {PRODUCT_NAME}
+                  </h4>
+                  <p className="text-[11px] text-white/60 mt-0.5">
+                    {PRODUCT_DESC} artesanas listas para freír o airfryer • Queso llanero 100%
+                  </p>
                 </div>
-                <div className="text-right">
-                  <div className="font-mono font-bold text-[#FFB703]">85,00 €</div>
-                  <div className="text-[10px] text-emerald-400 font-bold">¡Envío 0 €!</div>
-                </div>
-              </div>
-
-              {/* 300 Uds */}
-              <div
-                onClick={() => setSelectedBundle("3_boxes")}
-                className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${
-                  selectedBundle === "3_boxes"
-                    ? "bg-[#FFB703]/10 border-[#FFB703] text-white"
-                    : "bg-[#080B10] border-white/5 text-white/70 hover:border-white/20"
-                }`}
-              >
-                <div>
-                  <div className="font-bold text-xs sm:text-sm">3 Cajas (300 Tequeños)</div>
-                  <div className="text-[11px] text-white/50">0,40 €/ud • Catering / Eventos</div>
-                </div>
-                <div className="text-right">
-                  <div className="font-mono font-bold text-[#FFB703]">120,00 €</div>
-                  <div className="text-[10px] text-emerald-400 font-bold">Envío 0 €</div>
+                <div className="text-right shrink-0">
+                  <div className="font-display font-black text-xl text-[#FFB703]">{FIXED_PRICE},00 €</div>
+                  <span className="text-[10px] text-emerald-400 font-semibold block">Envío refrigerado inc.</span>
                 </div>
               </div>
             </div>
@@ -385,26 +316,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {/* Pricing Summary Box */}
             <div className="bg-[#080B10] p-3.5 rounded-2xl border border-white/5 mb-4 text-xs space-y-1 shadow-inner">
               <div className="flex justify-between text-white/60">
-                <span>Subtotal producto:</span>
-                <span className="font-mono text-white">{current.price.toFixed(2)} €</span>
+                <span>Producto:</span>
+                <span className="font-semibold text-white">{PRODUCT_NAME}</span>
               </div>
               <div className="flex justify-between text-white/60">
                 <span>Transporte en frío 24/48h:</span>
-                <span className="font-mono text-white">
-                  {current.shipping === 0 ? (
-                    <strong className="text-emerald-400">GRATIS</strong>
-                  ) : (
-                    `${current.shipping.toFixed(2)} €`
-                  )}
-                </span>
+                <span className="font-mono text-emerald-400 font-bold">INCLUIDO</span>
               </div>
               <div className="flex justify-between text-sm font-bold text-white pt-1.5 border-t border-white/5">
-                <span>Total Estimado:</span>
-                <span className="text-[#FFB703] font-mono text-base">{total.toFixed(2)} €</span>
+                <span>Total a Pagar:</span>
+                <span className="text-[#FFB703] font-display text-lg font-black">{FIXED_PRICE},00 €</span>
               </div>
             </div>
 
-            {/* Submit Action */}
+            {/* Submit Action: Comprar Caja - 45€ */}
             <button
               type="submit"
               disabled={isLoading}
@@ -417,7 +342,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </>
               ) : (
                 <>
-                  <span>Confirmar Pedido ({total.toFixed(2)} €)</span>
+                  <span>Comprar Caja - 45€</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
