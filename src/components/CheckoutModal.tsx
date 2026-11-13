@@ -21,6 +21,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const [isLoading, setIsLoading] = useState(false);
   const [isWaitlisted, setIsWaitlisted] = useState(false);
+  const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [waitlistNumber, setWaitlistNumber] = useState<number>(24);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -79,14 +80,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
       if (response.ok && data.success) {
         setWaitlistNumber(data.waitlistPosition || 28);
+        setAlreadyJoined(Boolean(data.alreadyJoined));
         setIsWaitlisted(true);
       } else {
         setErrorMessage(data.error || "Hubo un problema. Por favor inténtalo de nuevo.");
       }
     } catch (err) {
       console.error("Submission error:", err);
-      setWaitlistNumber(26);
-      setIsWaitlisted(true);
+      setErrorMessage("No pudimos conectar. Revisa tu conexión e inténtalo de nuevo.");
     } finally {
       setIsLoading(false);
     }
@@ -127,10 +128,21 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-black font-display text-white mb-2 leading-tight">
-              ¡Casi llegas! Tu plaza prioritaria <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB703] to-[#FB8500]">
-                ha quedado reservada.
-              </span>
+              {alreadyJoined ? (
+                <>
+                  Ya tenías plaza.{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB703] to-[#FB8500]">
+                    Seguimos guardándola.
+                  </span>
+                </>
+              ) : (
+                <>
+                  ¡Casi llegas! Tu plaza prioritaria <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB703] to-[#FB8500]">
+                    ha quedado reservada.
+                  </span>
+                </>
+              )}
             </h3>
 
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-5">
